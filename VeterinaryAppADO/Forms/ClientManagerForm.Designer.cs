@@ -31,10 +31,9 @@ namespace VeterinaryAppADO
         {
             this.ButtonAddAnimal = new System.Windows.Forms.Button();
             this.ButtonAddOwner = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.AnimalRace = new System.Windows.Forms.TextBox();
+            this.AnimalType = new System.Windows.Forms.TextBox();
+            this.AnimalName = new System.Windows.Forms.TextBox();
             this.OwnerSurname = new System.Windows.Forms.TextBox();
             this.OwnerName = new System.Windows.Forms.TextBox();
             this.ListOfOwners = new System.Windows.Forms.ComboBox();
@@ -48,8 +47,12 @@ namespace VeterinaryAppADO
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewAnimal = new System.Windows.Forms.DataGridView();
             this.OwnerNumber = new System.Windows.Forms.NumericUpDown();
+            this.ModifyAnimal = new System.Windows.Forms.Button();
+            this.DeleteAnimal = new System.Windows.Forms.Button();
+            this.AnimalAge = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnimal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OwnerNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AnimalAge)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonAddAnimal
@@ -60,6 +63,7 @@ namespace VeterinaryAppADO
             this.ButtonAddAnimal.TabIndex = 0;
             this.ButtonAddAnimal.Text = "Dodaj zwierzaka";
             this.ButtonAddAnimal.UseVisualStyleBackColor = true;
+            this.ButtonAddAnimal.Click += new System.EventHandler(this.ButtonAddAnimal_Click);
             // 
             // ButtonAddOwner
             // 
@@ -71,33 +75,26 @@ namespace VeterinaryAppADO
             this.ButtonAddOwner.UseVisualStyleBackColor = true;
             this.ButtonAddOwner.Click += new System.EventHandler(this.ButtonAddOwner_Click);
             // 
-            // textBox1
+            // AnimalRace
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 311);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.AnimalRace.Location = new System.Drawing.Point(110, 259);
+            this.AnimalRace.Name = "AnimalRace";
+            this.AnimalRace.Size = new System.Drawing.Size(100, 20);
+            this.AnimalRace.TabIndex = 3;
             // 
-            // textBox2
+            // AnimalType
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 259);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.AnimalType.Location = new System.Drawing.Point(110, 213);
+            this.AnimalType.Name = "AnimalType";
+            this.AnimalType.Size = new System.Drawing.Size(100, 20);
+            this.AnimalType.TabIndex = 4;
             // 
-            // textBox3
+            // AnimalName
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(110, 165);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
+            this.AnimalName.Location = new System.Drawing.Point(110, 165);
+            this.AnimalName.Name = "AnimalName";
+            this.AnimalName.Size = new System.Drawing.Size(100, 20);
+            this.AnimalName.TabIndex = 5;
             // 
             // OwnerSurname
             // 
@@ -214,11 +211,47 @@ namespace VeterinaryAppADO
             this.OwnerNumber.TabIndex = 19;
             this.OwnerNumber.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
+            // ModifyAnimal
+            // 
+            this.ModifyAnimal.Location = new System.Drawing.Point(455, 395);
+            this.ModifyAnimal.Name = "ModifyAnimal";
+            this.ModifyAnimal.Size = new System.Drawing.Size(145, 49);
+            this.ModifyAnimal.TabIndex = 20;
+            this.ModifyAnimal.Text = "Edytuj zwierzaka";
+            this.ModifyAnimal.UseVisualStyleBackColor = true;
+            this.ModifyAnimal.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // DeleteAnimal
+            // 
+            this.DeleteAnimal.Location = new System.Drawing.Point(652, 395);
+            this.DeleteAnimal.Name = "DeleteAnimal";
+            this.DeleteAnimal.Size = new System.Drawing.Size(145, 49);
+            this.DeleteAnimal.TabIndex = 21;
+            this.DeleteAnimal.Text = "Usuń zwierzaka";
+            this.DeleteAnimal.UseVisualStyleBackColor = true;
+            this.DeleteAnimal.Click += new System.EventHandler(this.DeleteAnimal_Click);
+            // 
+            // AnimalAge
+            // 
+            this.AnimalAge.Location = new System.Drawing.Point(110, 311);
+            this.AnimalAge.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.AnimalAge.Name = "AnimalAge";
+            this.AnimalAge.Size = new System.Drawing.Size(120, 20);
+            this.AnimalAge.TabIndex = 22;
+            this.AnimalAge.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
             // ClientManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 590);
+            this.Controls.Add(this.AnimalAge);
+            this.Controls.Add(this.DeleteAnimal);
+            this.Controls.Add(this.ModifyAnimal);
             this.Controls.Add(this.OwnerNumber);
             this.Controls.Add(this.dataGridViewAnimal);
             this.Controls.Add(this.label8);
@@ -232,10 +265,9 @@ namespace VeterinaryAppADO
             this.Controls.Add(this.ListOfOwners);
             this.Controls.Add(this.OwnerName);
             this.Controls.Add(this.OwnerSurname);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.AnimalName);
+            this.Controls.Add(this.AnimalType);
+            this.Controls.Add(this.AnimalRace);
             this.Controls.Add(this.ButtonAddOwner);
             this.Controls.Add(this.ButtonAddAnimal);
             this.Name = "ClientManagerForm";
@@ -243,6 +275,7 @@ namespace VeterinaryAppADO
             this.Load += new System.EventHandler(this.ClientManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnimal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OwnerNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AnimalAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,10 +285,9 @@ namespace VeterinaryAppADO
 
         private System.Windows.Forms.Button ButtonAddAnimal;
         private System.Windows.Forms.Button ButtonAddOwner;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox AnimalRace;
+        private System.Windows.Forms.TextBox AnimalType;
+        private System.Windows.Forms.TextBox AnimalName;
         private System.Windows.Forms.TextBox OwnerSurname;
         private System.Windows.Forms.TextBox OwnerName;
         private System.Windows.Forms.ComboBox ListOfOwners;
@@ -269,5 +301,8 @@ namespace VeterinaryAppADO
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridViewAnimal;
         private System.Windows.Forms.NumericUpDown OwnerNumber;
+        private System.Windows.Forms.Button ModifyAnimal;
+        private System.Windows.Forms.Button DeleteAnimal;
+        private System.Windows.Forms.NumericUpDown AnimalAge;
     }
 }
