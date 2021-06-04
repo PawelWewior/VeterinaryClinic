@@ -14,8 +14,7 @@ namespace VeterinaryAppADO
     public partial class ClientManagerForm : Form
     {
         SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI;MultipleActiveResultSets=true;");
-        Opiekun opiekun = new Opiekun();
-
+        DataTable animalTable = new DataTable();
 
 
         public ClientManagerForm()
@@ -26,25 +25,23 @@ namespace VeterinaryAppADO
 
         private void ClientManagerForm_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI");
-            con.Open();
+            
+            animalTable.Columns.Add("Imie", typeof(string));
+            animalTable.Columns.Add("TypZwierzecia", typeof(string));
+            animalTable.Columns.Add("Gatunek", typeof(string));
+            animalTable.Columns.Add("Wiek", typeof(int));
+            animalTable.Columns.Add("Nazwisko", typeof(string));
+            //animalTable.Columns.Add("Lekarz", typeof(string));
+           // animalTable.Columns.Add("Pomieszczenie Zwierzaka", typeof(string));
+            GetOwners();
+          //  GetAnimals();
+            
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Opiekun", con);
 
-            SqlDataReader da = cmd.ExecuteReader();
 
-            while (da.Read())
-            {
-                opiekun.Id = (int)da["IDOpiekun"];
-                opiekun.Imie = da["Imie"].ToString();
-                opiekun.Nazwisko = da["Nazwisko"].ToString();
-                opiekun.Telefon = da["Telefon"].ToString();
-                ListOfOwners.Items.Add(opiekun.Imie);
 
-            }
-            con.Close();
-           
-           
+
+
 
         }
 
@@ -56,6 +53,8 @@ namespace VeterinaryAppADO
             }
             else
             {
+                Opiekun opiekun = new Opiekun();
+
                 opiekun.Imie = OwnerName.Text;
                 opiekun.Nazwisko = OwnerSurname.Text;
                 opiekun.Telefon = OwnerNumber.Value.ToString();
@@ -63,7 +62,7 @@ namespace VeterinaryAppADO
                 opiekun.addOwner(opiekun.Imie, opiekun.Nazwisko, opiekun.Telefon);
                 MessageBox.Show("Pomyślnie dodano opiekuna do bazy");
                 ListOfOwners.Items.Add(opiekun.Imie);
-                Refresh();
+                OwnerRefresh();
 
             }
 
@@ -71,12 +70,102 @@ namespace VeterinaryAppADO
         }
 
 
-        void Refresh()
+        void OwnerRefresh()
         {
             OwnerName.Clear();
             OwnerSurname.Clear();
             OwnerNumber.Value =0;
+            ListOfOwners.Items.Clear();
+            GetOwners();
         }
-        
+
+        void AnimalRefresh()
+        {
+            AnimalName.Clear();
+            AnimalAge.Value = 0;
+            AnimalType.Clear();
+            AnimalRace.Clear();
+            dataGridViewAnimal.Rows.Clear();
+            GetAnimals();
+        }
+
+        private void ButtonAddAnimal_Click(object sender, EventArgs e)
+        {
+            if (ListOfOwners.SelectedItem == null || String.IsNullOrWhiteSpace(AnimalName.Text) || String.IsNullOrWhiteSpace(AnimalRace.Text) || String.IsNullOrWhiteSpace(AnimalAge.Text) || String.IsNullOrWhiteSpace(AnimalType.Text))
+            {
+                MessageBox.Show("Niepoprawne dane, proszę spróbować ponownie");
+
+            }
+            else
+            {
+                Zwierze zwierze = new Zwierze();
+                zwierze.ImieZwierze = AnimalName.Text;
+                zwierze.TypZwierze = AnimalType.Text;
+                zwierze.Gatunek = AnimalRace.Text;
+                zwierze.WiekZwierze = (int)AnimalAge.Value;
+
+                string owner = ListOfOwners.SelectedItem.ToString();
+
+                zwierze.addAnimal(zwierze.ImieZwierze, zwierze.TypZwierze, zwierze.Gatunek, zwierze.WiekZwierze, owner);
+                
+            }
+
+
+
+        }
+
+
+        void GetOwners()
+        {
+            SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI");
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Opiekun", con);
+
+            SqlDataReader da = cmd.ExecuteReader();
+
+            while (da.Read())
+            {
+                Opiekun opiekun = new Opiekun();
+
+                opiekun.Id = (int)da["IDOpiekun"];
+                opiekun.Imie = da["Imie"].ToString();
+                opiekun.Nazwisko = da["Nazwisko"].ToString();
+                opiekun.Telefon = da["Telefon"].ToString();
+                ListOfOwners.Items.Add(opiekun.Imie + " " + opiekun.Nazwisko);
+
+            }
+            con.Close();
+        }
+
+        void GetAnimals()
+        {
+           
+
+
+            dataGridViewAnimal.DataSource = animalTable;
+            SqlConnection con = new SqlConnection("Server= localhost; Database= Kino;Integrated Security=SSPI");
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT Imie,TypZwierzecia,Gatunek,Wiek,(SELECT Nazwisko FROM dbo.Opiekun LEFT OUTER JOIN dbo.Zwierze on Opiekun.IDOpiekun = Zwierze.IDOpiekun ) FROM dbo.Zwierze", con);
+
+
+            SqlDataAdapter fillAnimals = new SqlDataAdapter(cmd);
+
+            fillAnimals.Fill(animalTable);
+
+            con.Close();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteAnimal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
