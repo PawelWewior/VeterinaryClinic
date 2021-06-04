@@ -34,7 +34,7 @@ namespace VeterinaryAppADO
             //animalTable.Columns.Add("Lekarz", typeof(string));
            // animalTable.Columns.Add("Pomieszczenie Zwierzaka", typeof(string));
             GetOwners();
-          //  GetAnimals();
+            GetAnimals();
             
 
 
@@ -85,7 +85,7 @@ namespace VeterinaryAppADO
             AnimalAge.Value = 0;
             AnimalType.Clear();
             AnimalRace.Clear();
-            dataGridViewAnimal.Rows.Clear();
+            animalTable.Clear();
             GetAnimals();
         }
 
@@ -107,7 +107,10 @@ namespace VeterinaryAppADO
                 string owner = ListOfOwners.SelectedItem.ToString();
 
                 zwierze.addAnimal(zwierze.ImieZwierze, zwierze.TypZwierze, zwierze.Gatunek, zwierze.WiekZwierze, owner);
-                
+                MessageBox.Show("Pomyślnie dodano zwierzaka do bazy");
+                AnimalRefresh();
+
+
             }
 
 
@@ -136,6 +139,7 @@ namespace VeterinaryAppADO
 
             }
             con.Close();
+            
         }
 
         void GetAnimals()
@@ -144,10 +148,10 @@ namespace VeterinaryAppADO
 
 
             dataGridViewAnimal.DataSource = animalTable;
-            SqlConnection con = new SqlConnection("Server= localhost; Database= Kino;Integrated Security=SSPI");
+            SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI");
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT Imie,TypZwierzecia,Gatunek,Wiek,(SELECT Nazwisko FROM dbo.Opiekun LEFT OUTER JOIN dbo.Zwierze on Opiekun.IDOpiekun = Zwierze.IDOpiekun ) FROM dbo.Zwierze", con);
+            SqlCommand cmd = new SqlCommand("SELECT dbo.Zwierze.Imie,dbo.Zwierze.TypZwierzecia,dbo.Zwierze.Gatunek,dbo.Zwierze.Wiek,dbo.Opiekun.Nazwisko FROM dbo.Zwierze INNER JOIN dbo.Opiekun on dbo.Zwierze.IDOpiekun = dbo.Opiekun.IDOpiekun ", con);
 
 
             SqlDataAdapter fillAnimals = new SqlDataAdapter(cmd);

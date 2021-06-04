@@ -33,5 +33,12 @@ namespace VeterinaryAppADO
             DataSet ds = new DataSet();
             da.Fill(ds);
         }
+
+
+        public void deleteAnimal()
+        {
+
+        }
+
     }
 }
