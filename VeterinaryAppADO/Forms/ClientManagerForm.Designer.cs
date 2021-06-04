@@ -195,8 +195,9 @@ namespace VeterinaryAppADO
             this.dataGridViewAnimal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAnimal.Location = new System.Drawing.Point(455, 28);
             this.dataGridViewAnimal.Name = "dataGridViewAnimal";
-            this.dataGridViewAnimal.Size = new System.Drawing.Size(585, 351);
+            this.dataGridViewAnimal.Size = new System.Drawing.Size(653, 361);
             this.dataGridViewAnimal.TabIndex = 18;
+            this.dataGridViewAnimal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAnimal_CellClick);
             // 
             // OwnerNumber
             // 
@@ -248,7 +249,7 @@ namespace VeterinaryAppADO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 623);
+            this.ClientSize = new System.Drawing.Size(1226, 623);
             this.Controls.Add(this.AnimalAge);
             this.Controls.Add(this.DeleteAnimal);
             this.Controls.Add(this.ModifyAnimal);
