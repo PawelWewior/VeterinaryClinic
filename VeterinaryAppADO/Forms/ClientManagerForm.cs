@@ -34,15 +34,7 @@ namespace VeterinaryAppADO
             //animalTable.Columns.Add("Lekarz", typeof(string));
            // animalTable.Columns.Add("Pomieszczenie Zwierzaka", typeof(string));
             GetOwners();
-            GetAnimals();
-            
-
-
-
-
-
-
-
+            GetAnimals();         
         }
 
         private void ButtonAddOwner_Click(object sender, EventArgs e)

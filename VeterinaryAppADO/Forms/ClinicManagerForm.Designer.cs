@@ -33,17 +33,20 @@ namespace VeterinaryAppADO
             this.ImiepersonelTextbox = new System.Windows.Forms.TextBox();
             this.NazwiskoPersonelTextbox = new System.Windows.Forms.TextBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.StanowiskoTextBox = new System.Windows.Forms.TextBox();
             this.TelefonPersonelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NazwaSprzetTextbox = new System.Windows.Forms.TextBox();
             this.dodajsprzetbutton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.Stanowiskocombobox = new System.Windows.Forms.ComboBox();
+            this.PersonelDGV = new System.Windows.Forms.DataGridView();
+            this.Przypiszsprzetbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TelefonPersonelNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PersonelDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonDodajPersonel
@@ -76,13 +79,6 @@ namespace VeterinaryAppADO
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
-            // 
-            // StanowiskoTextBox
-            // 
-            this.StanowiskoTextBox.Location = new System.Drawing.Point(166, 357);
-            this.StanowiskoTextBox.Name = "StanowiskoTextBox";
-            this.StanowiskoTextBox.Size = new System.Drawing.Size(100, 22);
-            this.StanowiskoTextBox.TabIndex = 4;
             // 
             // TelefonPersonelNumericUpDown
             // 
@@ -136,16 +132,16 @@ namespace VeterinaryAppADO
             this.label5.TabIndex = 10;
             this.label5.Text = "Telefon:";
             // 
-            // textBox1
+            // NazwaSprzetTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(645, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 11;
+            this.NazwaSprzetTextbox.Location = new System.Drawing.Point(638, 266);
+            this.NazwaSprzetTextbox.Name = "NazwaSprzetTextbox";
+            this.NazwaSprzetTextbox.Size = new System.Drawing.Size(100, 22);
+            this.NazwaSprzetTextbox.TabIndex = 11;
             // 
             // dodajsprzetbutton
             // 
-            this.dodajsprzetbutton.Location = new System.Drawing.Point(645, 90);
+            this.dodajsprzetbutton.Location = new System.Drawing.Point(595, 308);
             this.dodajsprzetbutton.Name = "dodajsprzetbutton";
             this.dodajsprzetbutton.Size = new System.Drawing.Size(143, 27);
             this.dodajsprzetbutton.TabIndex = 12;
@@ -156,27 +152,60 @@ namespace VeterinaryAppADO
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(562, 42);
+            this.label6.Location = new System.Drawing.Point(555, 271);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "Nazwa:";
+            // 
+            // Stanowiskocombobox
+            // 
+            this.Stanowiskocombobox.FormattingEnabled = true;
+            this.Stanowiskocombobox.Items.AddRange(new object[] {
+            "Lekarz",
+            "Asystent"});
+            this.Stanowiskocombobox.Location = new System.Drawing.Point(165, 355);
+            this.Stanowiskocombobox.Name = "Stanowiskocombobox";
+            this.Stanowiskocombobox.Size = new System.Drawing.Size(121, 24);
+            this.Stanowiskocombobox.TabIndex = 14;
+            // 
+            // PersonelDGV
+            // 
+            this.PersonelDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PersonelDGV.Location = new System.Drawing.Point(503, 12);
+            this.PersonelDGV.Name = "PersonelDGV";
+            this.PersonelDGV.RowHeadersWidth = 51;
+            this.PersonelDGV.RowTemplate.Height = 24;
+            this.PersonelDGV.Size = new System.Drawing.Size(533, 150);
+            this.PersonelDGV.TabIndex = 15;
+            // 
+            // Przypiszsprzetbutton
+            // 
+            this.Przypiszsprzetbutton.Location = new System.Drawing.Point(503, 355);
+            this.Przypiszsprzetbutton.Name = "Przypiszsprzetbutton";
+            this.Przypiszsprzetbutton.Size = new System.Drawing.Size(130, 41);
+            this.Przypiszsprzetbutton.TabIndex = 16;
+            this.Przypiszsprzetbutton.Text = "Przypisz sprzęt";
+            this.Przypiszsprzetbutton.UseVisualStyleBackColor = true;
+            this.Przypiszsprzetbutton.Click += new System.EventHandler(this.Przypiszsprzetbutton_Click);
             // 
             // ClinicManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 820);
+            this.Controls.Add(this.Przypiszsprzetbutton);
+            this.Controls.Add(this.PersonelDGV);
+            this.Controls.Add(this.Stanowiskocombobox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dodajsprzetbutton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NazwaSprzetTextbox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TelefonPersonelNumericUpDown);
-            this.Controls.Add(this.StanowiskoTextBox);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.NazwiskoPersonelTextbox);
             this.Controls.Add(this.ImiepersonelTextbox);
@@ -186,6 +215,7 @@ namespace VeterinaryAppADO
             this.Text = "ClinicManagerForm";
             this.Load += new System.EventHandler(this.ClinicManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TelefonPersonelNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PersonelDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,15 +227,17 @@ namespace VeterinaryAppADO
         private System.Windows.Forms.TextBox ImiepersonelTextbox;
         private System.Windows.Forms.TextBox NazwiskoPersonelTextbox;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.TextBox StanowiskoTextBox;
         private System.Windows.Forms.NumericUpDown TelefonPersonelNumericUpDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NazwaSprzetTextbox;
         private System.Windows.Forms.Button dodajsprzetbutton;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox Stanowiskocombobox;
+        private System.Windows.Forms.DataGridView PersonelDGV;
+        private System.Windows.Forms.Button Przypiszsprzetbutton;
     }
 }
