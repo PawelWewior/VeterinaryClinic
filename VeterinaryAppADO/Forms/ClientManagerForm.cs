@@ -25,7 +25,7 @@ namespace VeterinaryAppADO
 
         private void ClientManagerForm_Load(object sender, EventArgs e)
         {
-            
+            animalTable.Columns.Add("IDZwierze", typeof(int));
             animalTable.Columns.Add("Imie", typeof(string));
             animalTable.Columns.Add("TypZwierzecia", typeof(string));
             animalTable.Columns.Add("Gatunek", typeof(string));
@@ -143,7 +143,7 @@ namespace VeterinaryAppADO
             SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI");
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT dbo.Zwierze.Imie,dbo.Zwierze.TypZwierzecia,dbo.Zwierze.Gatunek,dbo.Zwierze.Wiek,dbo.Opiekun.Nazwisko FROM dbo.Zwierze INNER JOIN dbo.Opiekun on dbo.Zwierze.IDOpiekun = dbo.Opiekun.IDOpiekun ", con);
+            SqlCommand cmd = new SqlCommand("SELECT dbo.Zwierze.IDZwierze,dbo.Zwierze.Imie,dbo.Zwierze.TypZwierzecia,dbo.Zwierze.Gatunek,dbo.Zwierze.Wiek,dbo.Opiekun.Nazwisko FROM dbo.Zwierze INNER JOIN dbo.Opiekun on dbo.Zwierze.IDOpiekun = dbo.Opiekun.IDOpiekun ", con);
 
 
             SqlDataAdapter fillAnimals = new SqlDataAdapter(cmd);
@@ -154,14 +154,62 @@ namespace VeterinaryAppADO
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)   //modifyAnimal_Click
         {
+            if (ListOfOwners.SelectedItem == null || String.IsNullOrWhiteSpace(AnimalName.Text) || String.IsNullOrWhiteSpace(AnimalRace.Text) || String.IsNullOrWhiteSpace(AnimalAge.Text) || String.IsNullOrWhiteSpace(AnimalType.Text))
+            {
+                MessageBox.Show("Niepoprawne dane, proszę spróbować ponownie");
 
+            }
+            else
+            {
+                Zwierze zw = new Zwierze();
+                string owner = ListOfOwners.SelectedItem.ToString();
+                zw.ImieZwierze = AnimalName.Text;
+                zw.TypZwierze = AnimalType.Text;
+                zw.Gatunek = AnimalRace.Text;
+                zw.WiekZwierze = (int)AnimalAge.Value;
+                zw.IdZwierze = (int)dataGridViewAnimal.SelectedRows[0].Cells[0].Value;
+
+                zw.modifyAnimal(zw.IdZwierze,zw.ImieZwierze, zw.TypZwierze, zw.Gatunek, zw.WiekZwierze, owner);
+                MessageBox.Show("Pomyślnie zedytowano zwierzaka");
+                AnimalRefresh();
+
+
+
+            }
         }
 
         private void DeleteAnimal_Click(object sender, EventArgs e)
         {
+            Zwierze zwierze = new Zwierze();
+            int IDDelete = (int)dataGridViewAnimal.CurrentRow.Cells["IDZwierze"].Value;
 
+            zwierze.IdZwierze = IDDelete;
+            zwierze.deleteAnimal(zwierze.IdZwierze);
+            MessageBox.Show("Pomyślnie usunięto zwierzaka z bazy");
+            AnimalRefresh();
+
+
+        }
+
+
+        private void dataGridViewAnimal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewAnimal.SelectedRows.Count > 0)
+            {
+
+                string imie = dataGridViewAnimal.SelectedRows[0].Cells[1].Value + string.Empty;
+                string typ = dataGridViewAnimal.SelectedRows[0].Cells[2].Value + string.Empty;
+                string gatunek = dataGridViewAnimal.SelectedRows[0].Cells[3].Value + string.Empty;
+                int wiek = (int)dataGridViewAnimal.SelectedRows[0].Cells[4].Value;
+                AnimalName.Text = imie;
+                AnimalType.Text = typ;
+                AnimalRace.Text = gatunek;
+                AnimalAge.Value = wiek;
+                
+
+            }
         }
     }
 }
