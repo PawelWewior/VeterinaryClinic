@@ -42,5 +42,12 @@ namespace VeterinaryAppADO
             var ClientForm = new ClientManagerForm();
             ClientForm.Show();
         }
+
+        private void ClinicManager_Click(object sender, EventArgs e)
+        {
+            var ClinicForm = new ClinicManagerForm();
+            ClinicForm.Show();
+
+        }
     }
 }

@@ -9,8 +9,8 @@ namespace VeterinaryAppADO
    public class Sprzet
     {
         public int Id { get; set; }
-        public int Nazwa { get; set; }
-        public int CzyDostepny { get; set; }
+        public string Nazwa { get; set; }
+        public string CzyDostepny { get; set; }
 
 
 

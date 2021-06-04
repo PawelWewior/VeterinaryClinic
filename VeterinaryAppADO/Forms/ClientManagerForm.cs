@@ -50,7 +50,7 @@ namespace VeterinaryAppADO
 
         private void ButtonAddOwner_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(OwnerName.Text) || String.IsNullOrWhiteSpace(OwnerSurname.Text) || OwnerNumber.Value == null)
+            if (String.IsNullOrWhiteSpace(OwnerName.Text) || String.IsNullOrWhiteSpace(OwnerSurname.Text))
             {
                 MessageBox.Show("Niepoprawne dane, proszę spróbować ponownie");
             }
