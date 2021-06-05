@@ -24,7 +24,8 @@ namespace VeterinaryAppADO
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            VisitManagerForm vi = new VisitManagerForm();
+            vi.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
