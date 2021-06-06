@@ -29,6 +29,16 @@ namespace VeterinaryAppADO
 
         private void VisitManagerForm_Load(object sender, EventArgs e)
         {
+            VisitsData.Columns.Add("IDWizyta", typeof(int));
+            VisitsData.Columns.Add("DataWizyty", typeof(DateTime));
+            VisitsData.Columns.Add("KosztWizyty", typeof(decimal));
+            VisitsData.Columns.Add("Imie", typeof(string));
+            VisitsData.Columns.Add("Nazwisko", typeof(string));
+
+
+
+
+
             GetVisitsToDGV();
             GetAnimalsToBox();
             GetDocsToBox();
@@ -40,7 +50,7 @@ namespace VeterinaryAppADO
         {
             dataGridViewVisit.DataSource = VisitsData;
             con.Open();
-            SqlCommand getVisits = new SqlCommand("SELECT dbo.Wizyta.IDWizyta,dbo.Wizyta.DataWizyty,dbo.Wizyta.KosztWizyty,(dbo.Zwierze.Imie FROM dbo.Zwierze INNER JOIN dbo.Wizyta on dbo.Wizyta.IDZwierze = dbo.Zwierze.IDZwierze),(dbo.Personel.Nazwisko FROM dbo.Personel INNER JOIN dbo.Wizyta on dbo.Wizyta.IDPersonel = dbo.Personel.IDPersonel)",con);
+            SqlCommand getVisits = new SqlCommand("SELECT dbo.Wizyta.IDWizyta,dbo.Wizyta.DataWizyty,dbo.Wizyta.KosztWizyty,dbo.Zwierze.Imie,dbo.Personel.Nazwisko FROM dbo.Wizyta INNER JOIN dbo.Zwierze on dbo.Wizyta.IDZwierze = dbo.Zwierze.IDZwierze INNER JOIN dbo.Personel on dbo.Wizyta.IDPersonel = dbo.Personel.IDPersonel",con);
 
             SqlDataAdapter da = new SqlDataAdapter(getVisits);
 
@@ -84,6 +94,20 @@ namespace VeterinaryAppADO
             con.Close();
         }
 
+        void VisitRefresh()
+        {
+
+            PickAnimal.Items.Clear();
+            PickDoc.Items.Clear();
+            VisitCost.Value = 0;
+            VisitsData.Clear();
+
+            GetVisitsToDGV();
+            GetAnimalsToBox();
+            GetDocsToBox();
+
+        }
+
         private void buttonAddVisit_Click(object sender, EventArgs e)
         {
             if (PickAnimal.SelectedItem == null || PickDoc.SelectedItem == null || VisitDate.SelectionStart == null || VisitCost.Value == null)
@@ -100,6 +124,8 @@ namespace VeterinaryAppADO
                 string doc = PickDoc.SelectedItem.ToString();
 
                 vis.addVisit(vis.DataWizyty, vis.KosztWizyty, animal, doc);
+                MessageBox.Show("Dodano wizytę do bazy");
+                VisitRefresh();
 
             }
         }
