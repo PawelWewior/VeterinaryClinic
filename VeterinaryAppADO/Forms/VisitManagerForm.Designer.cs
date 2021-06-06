@@ -141,6 +141,7 @@ namespace VeterinaryAppADO
             this.buttonDeleteVisit.TabIndex = 10;
             this.buttonDeleteVisit.Text = "Usuń wizytę";
             this.buttonDeleteVisit.UseVisualStyleBackColor = true;
+            this.buttonDeleteVisit.Click += new System.EventHandler(this.buttonDeleteVisit_Click);
             // 
             // buttonAddVisit
             // 

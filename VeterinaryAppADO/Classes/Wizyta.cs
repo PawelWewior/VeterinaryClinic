@@ -40,6 +40,15 @@ namespace VeterinaryAppADO
 
         }
 
+        public void deleteVisit(int id)
+        {
+            con.Open();
+            SqlCommand deleteVisit = new SqlCommand("DELETE FROM dbo.Wizyta WHERE IDWizyta = '" + id + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(deleteVisit);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+        }
+
 
     }
 }

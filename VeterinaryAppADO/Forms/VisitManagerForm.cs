@@ -129,5 +129,17 @@ namespace VeterinaryAppADO
 
             }
         }
+
+        private void buttonDeleteVisit_Click(object sender, EventArgs e)
+        {
+            Wizyta vis = new Wizyta();
+            int IDDelete = (int)dataGridViewVisit.CurrentRow.Cells["IDWizyta"].Value;
+
+            vis.Id = IDDelete;
+            vis.deleteVisit(vis.Id);
+            MessageBox.Show("Pomyślnie usunięto wizytę z bazy");
+                
+                VisitRefresh();
+        }
     }
 }
