@@ -41,6 +41,16 @@ namespace VeterinaryAppADO
             this.label4 = new System.Windows.Forms.Label();
             this.buttonDeleteVisit = new System.Windows.Forms.Button();
             this.buttonAddVisit = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PickAnimal2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SickName = new System.Windows.Forms.TextBox();
+            this.SickDesc = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Hosp = new System.Windows.Forms.CheckBox();
+            this.buttonAddSick = new System.Windows.Forms.Button();
+            this.buttonModifySick = new System.Windows.Forms.Button();
+            this.buttonDeleteSick = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VisitCost)).BeginInit();
@@ -135,7 +145,7 @@ namespace VeterinaryAppADO
             // 
             // buttonDeleteVisit
             // 
-            this.buttonDeleteVisit.Location = new System.Drawing.Point(269, 357);
+            this.buttonDeleteVisit.Location = new System.Drawing.Point(303, 357);
             this.buttonDeleteVisit.Name = "buttonDeleteVisit";
             this.buttonDeleteVisit.Size = new System.Drawing.Size(158, 57);
             this.buttonDeleteVisit.TabIndex = 10;
@@ -145,7 +155,7 @@ namespace VeterinaryAppADO
             // 
             // buttonAddVisit
             // 
-            this.buttonAddVisit.Location = new System.Drawing.Point(65, 357);
+            this.buttonAddVisit.Location = new System.Drawing.Point(29, 357);
             this.buttonAddVisit.Name = "buttonAddVisit";
             this.buttonAddVisit.Size = new System.Drawing.Size(158, 57);
             this.buttonAddVisit.TabIndex = 11;
@@ -153,11 +163,113 @@ namespace VeterinaryAppADO
             this.buttonAddVisit.UseVisualStyleBackColor = true;
             this.buttonAddVisit.Click += new System.EventHandler(this.buttonAddVisit_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(702, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Wybierz pacjenta :";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // PickAnimal2
+            // 
+            this.PickAnimal2.FormattingEnabled = true;
+            this.PickAnimal2.Location = new System.Drawing.Point(1042, 24);
+            this.PickAnimal2.Name = "PickAnimal2";
+            this.PickAnimal2.Size = new System.Drawing.Size(121, 21);
+            this.PickAnimal2.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(702, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 15);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Podaj nazwę choroby :";
+            // 
+            // SickName
+            // 
+            this.SickName.Location = new System.Drawing.Point(1042, 67);
+            this.SickName.Name = "SickName";
+            this.SickName.Size = new System.Drawing.Size(121, 20);
+            this.SickName.TabIndex = 15;
+            // 
+            // SickDesc
+            // 
+            this.SickDesc.Location = new System.Drawing.Point(923, 103);
+            this.SickDesc.Name = "SickDesc";
+            this.SickDesc.Size = new System.Drawing.Size(240, 73);
+            this.SickDesc.TabIndex = 16;
+            this.SickDesc.Text = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(702, 133);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 15);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Opis :";
+            // 
+            // Hosp
+            // 
+            this.Hosp.AutoSize = true;
+            this.Hosp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Hosp.Location = new System.Drawing.Point(1042, 210);
+            this.Hosp.Name = "Hosp";
+            this.Hosp.Size = new System.Drawing.Size(110, 19);
+            this.Hosp.TabIndex = 18;
+            this.Hosp.Text = "Hospitalizacja?";
+            this.Hosp.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddSick
+            // 
+            this.buttonAddSick.Location = new System.Drawing.Point(705, 357);
+            this.buttonAddSick.Name = "buttonAddSick";
+            this.buttonAddSick.Size = new System.Drawing.Size(135, 57);
+            this.buttonAddSick.TabIndex = 19;
+            this.buttonAddSick.Text = "Dodaj chorobę";
+            this.buttonAddSick.UseVisualStyleBackColor = true;
+            // 
+            // buttonModifySick
+            // 
+            this.buttonModifySick.Location = new System.Drawing.Point(865, 357);
+            this.buttonModifySick.Name = "buttonModifySick";
+            this.buttonModifySick.Size = new System.Drawing.Size(135, 57);
+            this.buttonModifySick.TabIndex = 20;
+            this.buttonModifySick.Text = "Modyfikuj chorobę";
+            this.buttonModifySick.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteSick
+            // 
+            this.buttonDeleteSick.Location = new System.Drawing.Point(1028, 357);
+            this.buttonDeleteSick.Name = "buttonDeleteSick";
+            this.buttonDeleteSick.Size = new System.Drawing.Size(135, 57);
+            this.buttonDeleteSick.TabIndex = 21;
+            this.buttonDeleteSick.Text = "Usuń chorobę";
+            this.buttonDeleteSick.UseVisualStyleBackColor = true;
+            // 
             // VisitManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 664);
+            this.ClientSize = new System.Drawing.Size(1276, 664);
+            this.Controls.Add(this.buttonDeleteSick);
+            this.Controls.Add(this.buttonModifySick);
+            this.Controls.Add(this.buttonAddSick);
+            this.Controls.Add(this.Hosp);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.SickDesc);
+            this.Controls.Add(this.SickName);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.PickAnimal2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonAddVisit);
             this.Controls.Add(this.buttonDeleteVisit);
             this.Controls.Add(this.label4);
@@ -195,5 +307,15 @@ namespace VeterinaryAppADO
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonDeleteVisit;
         private System.Windows.Forms.Button buttonAddVisit;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox PickAnimal2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox SickName;
+        private System.Windows.Forms.RichTextBox SickDesc;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox Hosp;
+        private System.Windows.Forms.Button buttonAddSick;
+        private System.Windows.Forms.Button buttonModifySick;
+        private System.Windows.Forms.Button buttonDeleteSick;
     }
 }

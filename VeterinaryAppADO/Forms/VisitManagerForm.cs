@@ -72,6 +72,9 @@ namespace VeterinaryAppADO
                 int id = (int)da["IDZwierze"];
                 string name = da["Imie"].ToString();
                 PickAnimal.Items.Add(id + "," + name);
+                PickAnimal2.Items.Add(id + "," + name);
+
+
             }
 
             con.Close();
@@ -81,15 +84,15 @@ namespace VeterinaryAppADO
         void GetDocsToBox()
         {
             con.Open();
-            SqlCommand getDocs = new SqlCommand("SELECT Imie,Nazwisko FROM dbo.Personel WHERE Stanowisko = 'Lekarz'", con);
-            SqlDataReader da = getDocs.ExecuteReader();
+                 SqlCommand getDocs = new SqlCommand("SELECT Imie,Nazwisko FROM dbo.Personel WHERE Stanowisko = 'Lekarz'", con);
+                    SqlDataReader da = getDocs.ExecuteReader();
 
-            while (da.Read())
-            {
-                string doc = da["Imie"].ToString() + " " + da["Nazwisko"].ToString();
-                PickDoc.Items.Add(doc);
+                    while (da.Read())
+                    {
+                     string doc = da["Imie"].ToString() + " " + da["Nazwisko"].ToString();
+                     PickDoc.Items.Add(doc);
 
-            }
+                    }
 
             con.Close();
         }
@@ -125,7 +128,8 @@ namespace VeterinaryAppADO
 
                 vis.addVisit(vis.DataWizyty, vis.KosztWizyty, animal, doc);
                 MessageBox.Show("Dodano wizytę do bazy");
-                VisitRefresh();
+               
+                    VisitRefresh();
 
             }
         }
@@ -140,6 +144,11 @@ namespace VeterinaryAppADO
             MessageBox.Show("Pomyślnie usunięto wizytę z bazy");
                 
                 VisitRefresh();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
