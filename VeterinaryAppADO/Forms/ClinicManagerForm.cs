@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VeterinaryAppADO.Forms;
 
 namespace VeterinaryAppADO
 {
@@ -17,6 +18,7 @@ namespace VeterinaryAppADO
         Personel personel = new Personel();
         Sprzet sprzet = new Sprzet();
         DataTable PersonelTable = new DataTable();
+        
         public ClinicManagerForm()
         {
             InitializeComponent();
@@ -29,7 +31,12 @@ namespace VeterinaryAppADO
             PersonelTable.Columns.Add("Nazwisko", typeof(string));
             PersonelTable.Columns.Add("Stanowisko", typeof(string));
             PersonelTable.Columns.Add("Telefon", typeof(int));
-          //  GetPersonel();
+
+           // PersonelSprzetTable.Columns.Add("IDPersonel", typeof(int));
+           // PersonelSprzetTable.Columns.Add("Imie", typeof(string));
+           // PersonelSprzetTable.Columns.Add("Nazwisko", typeof(string));
+           
+            //  GetPersonel();
             SetPersonelInDGV();
 
 
@@ -124,6 +131,7 @@ namespace VeterinaryAppADO
                 sprzet.Nazwa = NazwaSprzetTextbox.Text;
                 sprzet.CzyDostepny = "Tak";
                 sprzet.addSprzet(sprzet.Nazwa, sprzet.CzyDostepny);
+                
                 MessageBox.Show("Pomyślnie dodano sprzęt do bazy");
                 Refresh();
 
@@ -134,6 +142,65 @@ namespace VeterinaryAppADO
         private void Przypiszsprzetbutton_Click(object sender, EventArgs e)
         {
 
+            var przejscie = new AssignmentEquipmentForm();
+            przejscie.Show();
+        }
+
+        private void Listasprzetowcombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (PersonelDGV.SelectedRows.Count > 0)
+            {
+                Personel personel = new Personel();
+                int IDDelete = (int)PersonelDGV.CurrentRow.Cells["IDPersonel"].Value;
+                personel.Id = IDDelete;
+                personel.deletePersonel(personel.Id);
+                MessageBox.Show("Pomyślnie usunięto personel z bazy");
+                PersonelTable.Clear();
+                SetPersonelInDGV();
+               
+                
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano rekordu do usunięcia");
+            }
+        }
+
+        private void modyfikujpersonelbutton_Click(object sender, EventArgs e)
+        {
+
+
+            if (String.IsNullOrWhiteSpace(ImiepersonelTextbox.Text) || String.IsNullOrWhiteSpace(Stanowiskocombobox.Text) || String.IsNullOrWhiteSpace(NazwiskoPersonelTextbox.Text))
+            {
+                MessageBox.Show("Niepoprawne dane, proszę spróbować ponownie");
+            }
+            else
+            {
+                Personel personel = new Personel();
+
+                personel.Imie = ImiepersonelTextbox.Text;
+                personel.Nazwisko = NazwiskoPersonelTextbox.Text;
+                personel.dataUr = monthCalendar1.SelectionRange.Start;
+                personel.Stanowisko = Stanowiskocombobox.SelectedItem.ToString();
+                personel.Telefon = (int)TelefonPersonelNumericUpDown.Value;
+
+             
+                personel.Id = (int)PersonelDGV.SelectedRows[0].Cells[0].Value;
+
+                personel.modyfikujpersonel(personel.Id, personel.Imie, personel.Nazwisko, personel.dataUr, personel.Stanowisko, personel.Telefon.ToString());
+
+
+                MessageBox.Show("Pomyślnie zedytowano personel");
+                PersonelTable.Clear();
+                SetPersonelInDGV();
+            }
+                
+            
         }
     }
 }

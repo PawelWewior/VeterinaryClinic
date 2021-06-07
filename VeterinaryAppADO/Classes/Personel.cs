@@ -27,5 +27,24 @@ namespace VeterinaryAppADO
             DataSet ds = new DataSet();
             da.Fill(ds);
         }
+
+        public void deletePersonel(int id)
+        {
+            con.Open();
+            SqlCommand deletePersonel = new SqlCommand("DELETE FROM dbo.Personel WHERE IDPersonel = '" + id + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(deletePersonel);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+        }
+
+        public void modyfikujpersonel(int id, string name, string surname, DateTime birthdate, string proffesion, string nr)
+        {          
+            con.Open();
+            SqlCommand modyfikujPersonel = new SqlCommand("UPDATE dbo.Personel SET Imie = '" + name + "', Nazwisko = '" + surname + "', DataUrodzenia = '" + birthdate + "', Stanowisko = '" + proffesion + "', Telefon = '" + nr + "' WHERE IDPersonel ='" + id + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(modyfikujPersonel);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+        }
     }
 }
