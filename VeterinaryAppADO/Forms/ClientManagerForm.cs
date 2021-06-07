@@ -182,13 +182,20 @@ namespace VeterinaryAppADO
 
         private void DeleteAnimal_Click(object sender, EventArgs e)
         {
-            Zwierze zwierze = new Zwierze();
-            int IDDelete = (int)dataGridViewAnimal.CurrentRow.Cells["IDZwierze"].Value;
+            if(dataGridViewAnimal.SelectedRows.Count > 0)
+            {
+                Zwierze zwierze = new Zwierze();
+                int IDDelete = (int)dataGridViewAnimal.CurrentRow.Cells["IDZwierze"].Value;
 
-            zwierze.IdZwierze = IDDelete;
-            zwierze.deleteAnimal(zwierze.IdZwierze);
-            MessageBox.Show("Pomyślnie usunięto zwierzaka z bazy");
-            AnimalRefresh();
+                zwierze.IdZwierze = IDDelete;
+                zwierze.deleteAnimal(zwierze.IdZwierze);
+                MessageBox.Show("Pomyślnie usunięto zwierzaka z bazy");
+                AnimalRefresh();
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano rekordu do usunięcia");
+            }
 
 
         }

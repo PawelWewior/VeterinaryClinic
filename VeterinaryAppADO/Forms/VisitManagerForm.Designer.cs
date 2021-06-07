@@ -58,14 +58,20 @@ namespace VeterinaryAppADO
             // 
             // dataGridViewSickness
             // 
+            this.dataGridViewSickness.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewSickness.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewSickness.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSickness.Location = new System.Drawing.Point(705, 432);
             this.dataGridViewSickness.Name = "dataGridViewSickness";
+            this.dataGridViewSickness.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewSickness.Size = new System.Drawing.Size(458, 220);
             this.dataGridViewSickness.TabIndex = 0;
+            this.dataGridViewSickness.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSickness_CellClick);
             // 
             // dataGridViewVisit
             // 
+            this.dataGridViewVisit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewVisit.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewVisit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVisit.Location = new System.Drawing.Point(29, 432);
             this.dataGridViewVisit.Name = "dataGridViewVisit";
@@ -236,6 +242,7 @@ namespace VeterinaryAppADO
             this.buttonAddSick.TabIndex = 19;
             this.buttonAddSick.Text = "Dodaj chorobę";
             this.buttonAddSick.UseVisualStyleBackColor = true;
+            this.buttonAddSick.Click += new System.EventHandler(this.buttonAddSick_Click);
             // 
             // buttonModifySick
             // 
@@ -245,6 +252,7 @@ namespace VeterinaryAppADO
             this.buttonModifySick.TabIndex = 20;
             this.buttonModifySick.Text = "Modyfikuj chorobę";
             this.buttonModifySick.UseVisualStyleBackColor = true;
+            this.buttonModifySick.Click += new System.EventHandler(this.buttonModifySick_Click);
             // 
             // buttonDeleteSick
             // 
@@ -254,6 +262,7 @@ namespace VeterinaryAppADO
             this.buttonDeleteSick.TabIndex = 21;
             this.buttonDeleteSick.Text = "Usuń chorobę";
             this.buttonDeleteSick.UseVisualStyleBackColor = true;
+            this.buttonDeleteSick.Click += new System.EventHandler(this.buttonDeleteSick_Click);
             // 
             // VisitManagerForm
             // 
