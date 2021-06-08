@@ -125,8 +125,7 @@ namespace VeterinaryAppADO.Forms
         {
             String t = "Tak";
             con.Open();
-           SqlCommand UpdatePersonelSprzet = new SqlCommand("UPDATE dbo.Sprzet SET dbo.Sprzet.CzyDostepny = '" + t + "', dbo.Sprzet.IDPersonel = '" + "null" + "'
-                +"  WHERE dbo.Sprzet.IDSprzet =  '" + PersonelSprzetDGV.CurrentRow.Cells[0].Value + "'", con);
+           SqlCommand UpdatePersonelSprzet = new SqlCommand("UPDATE dbo.Sprzet SET dbo.Sprzet.CzyDostepny = '" + t + "', dbo.Sprzet.IDPersonel = NULL  WHERE dbo.Sprzet.IDSprzet =  '" + PersonelSprzetDGV.CurrentRow.Cells[0].Value + "'", con);
 
         //   SqlCommand UpdatePersonelSprzet = new SqlCommand("UPDATE dbo.Sprzet SET dbo.Sprzet.CzyDostepny = '" + t + "'" +
         //        "WHERE dbo.Sprzet.IDSprzet =  '" + PersonelSprzetDGV.CurrentRow.Cells[0].Value + "'", con);
