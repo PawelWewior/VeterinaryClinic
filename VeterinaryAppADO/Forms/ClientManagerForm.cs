@@ -31,7 +31,7 @@ namespace VeterinaryAppADO
             animalTable.Columns.Add("Gatunek", typeof(string));
             animalTable.Columns.Add("Wiek", typeof(int));
             animalTable.Columns.Add("Nazwisko", typeof(string));
-            //animalTable.Columns.Add("Lekarz", typeof(string));
+          //  animalTable.Columns.Add("Lekarz", typeof(string));
            // animalTable.Columns.Add("Pomieszczenie Zwierzaka", typeof(string));
             GetOwners();
             GetAnimals();         
@@ -143,7 +143,7 @@ namespace VeterinaryAppADO
             SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI");
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT dbo.Zwierze.IDZwierze,dbo.Zwierze.Imie,dbo.Zwierze.TypZwierzecia,dbo.Zwierze.Gatunek,dbo.Zwierze.Wiek,dbo.Opiekun.Nazwisko FROM dbo.Zwierze INNER JOIN dbo.Opiekun on dbo.Zwierze.IDOpiekun = dbo.Opiekun.IDOpiekun ", con);
+            SqlCommand cmd = new SqlCommand("SELECT dbo.Zwierze.IDZwierze,dbo.Zwierze.Imie,dbo.Zwierze.TypZwierzecia,dbo.Zwierze.Gatunek,dbo.Zwierze.Wiek,dbo.Opiekun.Nazwisko FROM dbo.Zwierze INNER JOIN dbo.Opiekun on dbo.Zwierze.IDOpiekun = dbo.Opiekun.IDOpiekun", con);
 
 
             SqlDataAdapter fillAnimals = new SqlDataAdapter(cmd);
