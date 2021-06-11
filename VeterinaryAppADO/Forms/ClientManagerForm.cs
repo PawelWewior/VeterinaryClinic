@@ -15,7 +15,10 @@ namespace VeterinaryAppADO
     {
         SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI;MultipleActiveResultSets=true;");
         DataTable animalTable = new DataTable();
+       
 
+        
+        
 
         public ClientManagerForm()
         {
@@ -34,8 +37,51 @@ namespace VeterinaryAppADO
           //  animalTable.Columns.Add("Lekarz", typeof(string));
            // animalTable.Columns.Add("Pomieszczenie Zwierzaka", typeof(string));
             GetOwners();
-            GetAnimals();         
+            GetAnimals();
+
+
+            if (GetnumberofAnimals() / GetnumberofPersonel() > 10)
+                MessageBox.Show("Na jednego członka personelu przypada więcej niż 10 zwierząt. Powinieneś zatrudnić więcej personelu.");
+           
         }
+
+
+        public int GetnumberofAnimals()
+        {
+            string stmt = "SELECT COUNT(*) FROM dbo.Zwierze";
+            int count = 0;
+
+            using (SqlConnection thisConnection = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI"))
+            {
+                using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+                {
+                    thisConnection.Open();
+                    count = (int)cmdCount.ExecuteScalar();
+                }
+            }
+            return count;
+            
+        }
+
+        public int GetnumberofPersonel()
+        {
+            string stmt = "SELECT COUNT(*) FROM dbo.Personel";
+            int count = 0;
+
+            using (SqlConnection thisConnection = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI"))
+            {
+                using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+                {
+                    thisConnection.Open();
+                    count = (int)cmdCount.ExecuteScalar();
+                }
+            }
+            return count;
+        }
+
+
+
+
 
         private void ButtonAddOwner_Click(object sender, EventArgs e)
         {
@@ -100,6 +146,9 @@ namespace VeterinaryAppADO
 
                 zwierze.addAnimal(zwierze.ImieZwierze, zwierze.TypZwierze, zwierze.Gatunek, zwierze.WiekZwierze, owner);
                 MessageBox.Show("Pomyślnie dodano zwierzaka do bazy");
+              
+
+                
                 AnimalRefresh();
 
 
@@ -189,6 +238,7 @@ namespace VeterinaryAppADO
 
                 zwierze.IdZwierze = IDDelete;
                 zwierze.deleteAnimal(zwierze.IdZwierze);
+       //         dataGridViewAnimal.RowsRemoved += RowsRemoved;
                 MessageBox.Show("Pomyślnie usunięto zwierzaka z bazy");
                 AnimalRefresh();
             }

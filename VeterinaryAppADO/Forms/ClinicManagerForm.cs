@@ -18,7 +18,12 @@ namespace VeterinaryAppADO
         Personel personel = new Personel();
         Sprzet sprzet = new Sprzet();
         DataTable PersonelTable = new DataTable();
+       string licznikpersonelu;
+
+        ClientManagerForm frm = new ClientManagerForm();
         
+
+
         public ClinicManagerForm()
         {
             InitializeComponent();
@@ -40,9 +45,20 @@ namespace VeterinaryAppADO
             SetPersonelInDGV();
 
 
-        
+
+           
 
         }
+
+        //private void RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        //{
+        //    licznikpersonelu = PersonelDGV.Rows.Count;
+        //}
+
+        //private void RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        //{
+        //    licznikpersonelu = PersonelDGV.Rows.Count;
+        //}
 
         private void buttonDodajPersonel_Click(object sender, EventArgs e)
         {
@@ -58,7 +74,10 @@ namespace VeterinaryAppADO
                 personel.Stanowisko = Stanowiskocombobox.SelectedItem.ToString();
                 personel.Telefon = (int)TelefonPersonelNumericUpDown.Value;
                 personel.addPersonel(personel.Imie, personel.Nazwisko, personel.dataUr, personel.Stanowisko, personel.Telefon.ToString());
-                
+                //   PersonelDGV.RowsAdded += RowsAdded;
+               
+
+                label7.Text = PersonelDGV.Rows.Count.ToString();
                 MessageBox.Show("Pomyślnie dodano personel do bazy");               
                 Refresh();
 
@@ -106,6 +125,8 @@ namespace VeterinaryAppADO
 
         void SetPersonelInDGV()
         {
+            PersonelDGV.DataSource = null;
+            PersonelTable.Clear();
             PersonelDGV.DataSource = PersonelTable;
             SqlConnection con = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI");
             con.Open();
@@ -161,9 +182,15 @@ namespace VeterinaryAppADO
                 personel.deletePersonel(personel.Id);
                 MessageBox.Show("Pomyślnie usunięto personel z bazy");
                 PersonelTable.Clear();
-                SetPersonelInDGV();
                
+
+                licznikpersonelu = (PersonelDGV.Rows.Count - 1).ToString();
+                label8.Text = licznikpersonelu.ToString();
+
+                SetPersonelInDGV();
                 
+                //    PersonelDGV.RowsRemoved += RowsRemoved;
+
             }
             else
             {
@@ -190,7 +217,7 @@ namespace VeterinaryAppADO
                 personel.Telefon = (int)TelefonPersonelNumericUpDown.Value;
 
              
-                personel.Id = (int)PersonelDGV.SelectedRows[0].Cells[0].Value;
+                personel.Id = (int)PersonelDGV.CurrentRow.Cells[0].Value;
 
                 personel.modyfikujpersonel(personel.Id, personel.Imie, personel.Nazwisko, personel.dataUr, personel.Stanowisko, personel.Telefon.ToString());
 

@@ -55,7 +55,38 @@ namespace VeterinaryAppADO
             GetDocsToBox();
         }
 
+        public int GetnumberofPersonel()
+        {
+            string stmt = "SELECT COUNT(*) FROM dbo.Personel";
+            int count = 0;
 
+            using (SqlConnection thisConnection = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI"))
+            {
+                using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+                {
+                    thisConnection.Open();
+                    count = (int)cmdCount.ExecuteScalar();
+                }
+            }
+            return count;
+        }
+
+
+        public int GetnumberofHospitalizacja()
+        {
+            string stmt = "SELECT COUNT(IDZwierze) FROM dbo.Choroba WHERE WymogHospitalizacji = Tak";
+            int count = 0;
+
+            using (SqlConnection thisConnection = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI"))
+            {
+                using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+                {
+                    thisConnection.Open();
+                    count = (int)cmdCount.ExecuteScalar();
+                }
+            }
+            return count;
+        }
 
         void GetVisitsToDGV()
         {

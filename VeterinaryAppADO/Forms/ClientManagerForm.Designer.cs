@@ -50,6 +50,7 @@ namespace VeterinaryAppADO
             this.ModifyAnimal = new System.Windows.Forms.Button();
             this.DeleteAnimal = new System.Windows.Forms.Button();
             this.AnimalAge = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnimal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OwnerNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnimalAge)).BeginInit();
@@ -57,9 +58,10 @@ namespace VeterinaryAppADO
             // 
             // ButtonAddAnimal
             // 
-            this.ButtonAddAnimal.Location = new System.Drawing.Point(110, 355);
+            this.ButtonAddAnimal.Location = new System.Drawing.Point(147, 437);
+            this.ButtonAddAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonAddAnimal.Name = "ButtonAddAnimal";
-            this.ButtonAddAnimal.Size = new System.Drawing.Size(129, 54);
+            this.ButtonAddAnimal.Size = new System.Drawing.Size(172, 66);
             this.ButtonAddAnimal.TabIndex = 0;
             this.ButtonAddAnimal.Text = "Dodaj zwierzaka";
             this.ButtonAddAnimal.UseVisualStyleBackColor = true;
@@ -67,9 +69,10 @@ namespace VeterinaryAppADO
             // 
             // ButtonAddOwner
             // 
-            this.ButtonAddOwner.Location = new System.Drawing.Point(215, 513);
+            this.ButtonAddOwner.Location = new System.Drawing.Point(287, 631);
+            this.ButtonAddOwner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonAddOwner.Name = "ButtonAddOwner";
-            this.ButtonAddOwner.Size = new System.Drawing.Size(134, 54);
+            this.ButtonAddOwner.Size = new System.Drawing.Size(179, 66);
             this.ButtonAddOwner.TabIndex = 1;
             this.ButtonAddOwner.Text = "Dodaj opiekuna";
             this.ButtonAddOwner.UseVisualStyleBackColor = true;
@@ -77,116 +80,130 @@ namespace VeterinaryAppADO
             // 
             // AnimalRace
             // 
-            this.AnimalRace.Location = new System.Drawing.Point(110, 259);
+            this.AnimalRace.Location = new System.Drawing.Point(147, 319);
+            this.AnimalRace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AnimalRace.Name = "AnimalRace";
-            this.AnimalRace.Size = new System.Drawing.Size(100, 20);
+            this.AnimalRace.Size = new System.Drawing.Size(132, 22);
             this.AnimalRace.TabIndex = 3;
             // 
             // AnimalType
             // 
-            this.AnimalType.Location = new System.Drawing.Point(110, 213);
+            this.AnimalType.Location = new System.Drawing.Point(147, 262);
+            this.AnimalType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AnimalType.Name = "AnimalType";
-            this.AnimalType.Size = new System.Drawing.Size(100, 20);
+            this.AnimalType.Size = new System.Drawing.Size(132, 22);
             this.AnimalType.TabIndex = 4;
             // 
             // AnimalName
             // 
-            this.AnimalName.Location = new System.Drawing.Point(110, 165);
+            this.AnimalName.Location = new System.Drawing.Point(147, 203);
+            this.AnimalName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AnimalName.Name = "AnimalName";
-            this.AnimalName.Size = new System.Drawing.Size(100, 20);
+            this.AnimalName.Size = new System.Drawing.Size(132, 22);
             this.AnimalName.TabIndex = 5;
             // 
             // OwnerSurname
             // 
-            this.OwnerSurname.Location = new System.Drawing.Point(96, 510);
+            this.OwnerSurname.Location = new System.Drawing.Point(128, 628);
+            this.OwnerSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OwnerSurname.Name = "OwnerSurname";
-            this.OwnerSurname.Size = new System.Drawing.Size(100, 20);
+            this.OwnerSurname.Size = new System.Drawing.Size(132, 22);
             this.OwnerSurname.TabIndex = 7;
             // 
             // OwnerName
             // 
-            this.OwnerName.Location = new System.Drawing.Point(96, 477);
+            this.OwnerName.Location = new System.Drawing.Point(128, 587);
+            this.OwnerName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OwnerName.Name = "OwnerName";
-            this.OwnerName.Size = new System.Drawing.Size(100, 20);
+            this.OwnerName.Size = new System.Drawing.Size(132, 22);
             this.OwnerName.TabIndex = 8;
             // 
             // ListOfOwners
             // 
             this.ListOfOwners.FormattingEnabled = true;
-            this.ListOfOwners.Location = new System.Drawing.Point(110, 118);
+            this.ListOfOwners.Location = new System.Drawing.Point(147, 145);
+            this.ListOfOwners.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ListOfOwners.Name = "ListOfOwners";
-            this.ListOfOwners.Size = new System.Drawing.Size(121, 21);
+            this.ListOfOwners.Size = new System.Drawing.Size(160, 24);
             this.ListOfOwners.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 118);
+            this.label1.Location = new System.Drawing.Point(12, 145);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(125, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Wybierz opiekuna:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 168);
+            this.label2.Location = new System.Drawing.Point(16, 207);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 11;
             this.label2.Text = "Podaj imię:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 213);
+            this.label3.Location = new System.Drawing.Point(0, 262);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 13);
+            this.label3.Size = new System.Drawing.Size(137, 17);
             this.label3.TabIndex = 12;
             this.label3.Text = "Podaj typ zwierzaka:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 262);
+            this.label4.Location = new System.Drawing.Point(0, 322);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(80, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Podaj rasę:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(2, 318);
+            this.label5.Location = new System.Drawing.Point(3, 391);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.Size = new System.Drawing.Size(79, 17);
             this.label5.TabIndex = 14;
             this.label5.Text = "Podaj wiek:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 480);
+            this.label6.Location = new System.Drawing.Point(12, 591);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.Size = new System.Drawing.Size(77, 17);
             this.label6.TabIndex = 15;
             this.label6.Text = "Podaj imię:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(2, 513);
+            this.label7.Location = new System.Drawing.Point(3, 631);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 13);
+            this.label7.Size = new System.Drawing.Size(109, 17);
             this.label7.TabIndex = 16;
             this.label7.Text = "Podaj nazwisko:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2, 550);
+            this.label8.Location = new System.Drawing.Point(3, 677);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.Size = new System.Drawing.Size(120, 17);
             this.label8.TabIndex = 17;
             this.label8.Text = "Podaj nr telefonu:";
             // 
@@ -195,30 +212,34 @@ namespace VeterinaryAppADO
             this.dataGridViewAnimal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewAnimal.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewAnimal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAnimal.Location = new System.Drawing.Point(455, 28);
+            this.dataGridViewAnimal.Location = new System.Drawing.Point(607, 34);
+            this.dataGridViewAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewAnimal.Name = "dataGridViewAnimal";
-            this.dataGridViewAnimal.Size = new System.Drawing.Size(653, 361);
+            this.dataGridViewAnimal.RowHeadersWidth = 51;
+            this.dataGridViewAnimal.Size = new System.Drawing.Size(871, 444);
             this.dataGridViewAnimal.TabIndex = 18;
             this.dataGridViewAnimal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAnimal_CellClick);
             // 
             // OwnerNumber
             // 
-            this.OwnerNumber.Location = new System.Drawing.Point(90, 543);
+            this.OwnerNumber.Location = new System.Drawing.Point(120, 668);
+            this.OwnerNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OwnerNumber.Maximum = new decimal(new int[] {
             999999999,
             0,
             0,
             0});
             this.OwnerNumber.Name = "OwnerNumber";
-            this.OwnerNumber.Size = new System.Drawing.Size(120, 20);
+            this.OwnerNumber.Size = new System.Drawing.Size(160, 22);
             this.OwnerNumber.TabIndex = 19;
             this.OwnerNumber.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // ModifyAnimal
             // 
-            this.ModifyAnimal.Location = new System.Drawing.Point(455, 395);
+            this.ModifyAnimal.Location = new System.Drawing.Point(607, 486);
+            this.ModifyAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ModifyAnimal.Name = "ModifyAnimal";
-            this.ModifyAnimal.Size = new System.Drawing.Size(145, 49);
+            this.ModifyAnimal.Size = new System.Drawing.Size(193, 60);
             this.ModifyAnimal.TabIndex = 20;
             this.ModifyAnimal.Text = "Edytuj zwierzaka";
             this.ModifyAnimal.UseVisualStyleBackColor = true;
@@ -226,9 +247,10 @@ namespace VeterinaryAppADO
             // 
             // DeleteAnimal
             // 
-            this.DeleteAnimal.Location = new System.Drawing.Point(652, 395);
+            this.DeleteAnimal.Location = new System.Drawing.Point(869, 486);
+            this.DeleteAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DeleteAnimal.Name = "DeleteAnimal";
-            this.DeleteAnimal.Size = new System.Drawing.Size(145, 49);
+            this.DeleteAnimal.Size = new System.Drawing.Size(193, 60);
             this.DeleteAnimal.TabIndex = 21;
             this.DeleteAnimal.Text = "Usuń zwierzaka";
             this.DeleteAnimal.UseVisualStyleBackColor = true;
@@ -236,22 +258,33 @@ namespace VeterinaryAppADO
             // 
             // AnimalAge
             // 
-            this.AnimalAge.Location = new System.Drawing.Point(110, 311);
+            this.AnimalAge.Location = new System.Drawing.Point(147, 383);
+            this.AnimalAge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AnimalAge.Maximum = new decimal(new int[] {
             999999999,
             0,
             0,
             0});
             this.AnimalAge.Name = "AnimalAge";
-            this.AnimalAge.Size = new System.Drawing.Size(120, 20);
+            this.AnimalAge.Size = new System.Drawing.Size(160, 22);
             this.AnimalAge.TabIndex = 22;
             this.AnimalAge.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(386, 214);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "label9";
+            // 
             // ClientManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 623);
+            this.ClientSize = new System.Drawing.Size(1635, 767);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.AnimalAge);
             this.Controls.Add(this.DeleteAnimal);
             this.Controls.Add(this.ModifyAnimal);
@@ -273,6 +306,7 @@ namespace VeterinaryAppADO
             this.Controls.Add(this.AnimalRace);
             this.Controls.Add(this.ButtonAddOwner);
             this.Controls.Add(this.ButtonAddAnimal);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ClientManagerForm";
             this.Text = "ClientManagerForm";
             this.Load += new System.EventHandler(this.ClientManagerForm_Load);
@@ -307,5 +341,6 @@ namespace VeterinaryAppADO
         private System.Windows.Forms.Button ModifyAnimal;
         private System.Windows.Forms.Button DeleteAnimal;
         private System.Windows.Forms.NumericUpDown AnimalAge;
+        private System.Windows.Forms.Label label9;
     }
 }
