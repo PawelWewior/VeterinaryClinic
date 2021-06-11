@@ -47,17 +47,16 @@ namespace VeterinaryAppADO
             this.Przypiszsprzetbutton = new System.Windows.Forms.Button();
             this.usunpersonelbutton = new System.Windows.Forms.Button();
             this.modyfikujpersonelbutton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TelefonPersonelNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PersonelDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonDodajPersonel
             // 
-            this.buttonDodajPersonel.Location = new System.Drawing.Point(12, 387);
+            this.buttonDodajPersonel.Location = new System.Drawing.Point(9, 315);
+            this.buttonDodajPersonel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDodajPersonel.Name = "buttonDodajPersonel";
-            this.buttonDodajPersonel.Size = new System.Drawing.Size(143, 27);
+            this.buttonDodajPersonel.Size = new System.Drawing.Size(107, 30);
             this.buttonDodajPersonel.TabIndex = 0;
             this.buttonDodajPersonel.Text = "Dodaj personel";
             this.buttonDodajPersonel.UseVisualStyleBackColor = true;
@@ -65,89 +64,100 @@ namespace VeterinaryAppADO
             // 
             // ImiepersonelTextbox
             // 
-            this.ImiepersonelTextbox.Location = new System.Drawing.Point(88, 37);
+            this.ImiepersonelTextbox.Location = new System.Drawing.Point(66, 30);
+            this.ImiepersonelTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ImiepersonelTextbox.Name = "ImiepersonelTextbox";
-            this.ImiepersonelTextbox.Size = new System.Drawing.Size(100, 22);
+            this.ImiepersonelTextbox.Size = new System.Drawing.Size(76, 20);
             this.ImiepersonelTextbox.TabIndex = 1;
             // 
             // NazwiskoPersonelTextbox
             // 
-            this.NazwiskoPersonelTextbox.Location = new System.Drawing.Point(88, 65);
+            this.NazwiskoPersonelTextbox.Location = new System.Drawing.Point(66, 53);
+            this.NazwiskoPersonelTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NazwiskoPersonelTextbox.Name = "NazwiskoPersonelTextbox";
-            this.NazwiskoPersonelTextbox.Size = new System.Drawing.Size(100, 22);
+            this.NazwiskoPersonelTextbox.Size = new System.Drawing.Size(76, 20);
             this.NazwiskoPersonelTextbox.TabIndex = 2;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(15, 116);
+            this.monthCalendar1.Location = new System.Drawing.Point(11, 94);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // TelefonPersonelNumericUpDown
             // 
-            this.TelefonPersonelNumericUpDown.Location = new System.Drawing.Point(101, 359);
+            this.TelefonPersonelNumericUpDown.Location = new System.Drawing.Point(76, 292);
+            this.TelefonPersonelNumericUpDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TelefonPersonelNumericUpDown.Name = "TelefonPersonelNumericUpDown";
-            this.TelefonPersonelNumericUpDown.Size = new System.Drawing.Size(120, 22);
+            this.TelefonPersonelNumericUpDown.Size = new System.Drawing.Size(90, 20);
             this.TelefonPersonelNumericUpDown.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Location = new System.Drawing.Point(9, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 17);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Imię:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 63);
+            this.label2.Location = new System.Drawing.Point(9, 51);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Nazwisko:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 90);
+            this.label3.Location = new System.Drawing.Point(9, 73);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 17);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Data urodzenia:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 332);
+            this.label4.Location = new System.Drawing.Point(9, 270);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 17);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Stanowisko:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 364);
+            this.label5.Location = new System.Drawing.Point(9, 296);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Telefon:";
             // 
             // NazwaSprzetTextbox
             // 
-            this.NazwaSprzetTextbox.Location = new System.Drawing.Point(440, 12);
+            this.NazwaSprzetTextbox.Location = new System.Drawing.Point(330, 10);
+            this.NazwaSprzetTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NazwaSprzetTextbox.Name = "NazwaSprzetTextbox";
-            this.NazwaSprzetTextbox.Size = new System.Drawing.Size(100, 22);
+            this.NazwaSprzetTextbox.Size = new System.Drawing.Size(76, 20);
             this.NazwaSprzetTextbox.TabIndex = 11;
             // 
             // dodajsprzetbutton
             // 
-            this.dodajsprzetbutton.Location = new System.Drawing.Point(397, 54);
+            this.dodajsprzetbutton.Location = new System.Drawing.Point(423, 11);
+            this.dodajsprzetbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dodajsprzetbutton.Name = "dodajsprzetbutton";
-            this.dodajsprzetbutton.Size = new System.Drawing.Size(143, 27);
+            this.dodajsprzetbutton.Size = new System.Drawing.Size(107, 22);
             this.dodajsprzetbutton.TabIndex = 12;
             this.dodajsprzetbutton.Text = "Dodaj sprzęt";
             this.dodajsprzetbutton.UseVisualStyleBackColor = true;
@@ -156,9 +166,10 @@ namespace VeterinaryAppADO
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(357, 17);
+            this.label6.Location = new System.Drawing.Point(268, 14);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 17);
+            this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Nazwa:";
             // 
@@ -168,26 +179,31 @@ namespace VeterinaryAppADO
             this.Stanowiskocombobox.Items.AddRange(new object[] {
             "Lekarz",
             "Asystent"});
-            this.Stanowiskocombobox.Location = new System.Drawing.Point(101, 325);
+            this.Stanowiskocombobox.Location = new System.Drawing.Point(76, 264);
+            this.Stanowiskocombobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Stanowiskocombobox.Name = "Stanowiskocombobox";
-            this.Stanowiskocombobox.Size = new System.Drawing.Size(121, 24);
+            this.Stanowiskocombobox.Size = new System.Drawing.Size(92, 21);
             this.Stanowiskocombobox.TabIndex = 14;
             // 
             // PersonelDGV
             // 
+            this.PersonelDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.PersonelDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PersonelDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PersonelDGV.Location = new System.Drawing.Point(12, 429);
+            this.PersonelDGV.Location = new System.Drawing.Point(366, 328);
+            this.PersonelDGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PersonelDGV.Name = "PersonelDGV";
             this.PersonelDGV.RowHeadersWidth = 51;
             this.PersonelDGV.RowTemplate.Height = 24;
-            this.PersonelDGV.Size = new System.Drawing.Size(328, 119);
+            this.PersonelDGV.Size = new System.Drawing.Size(406, 205);
             this.PersonelDGV.TabIndex = 15;
             // 
             // Przypiszsprzetbutton
             // 
-            this.Przypiszsprzetbutton.Location = new System.Drawing.Point(397, 106);
+            this.Przypiszsprzetbutton.Location = new System.Drawing.Point(308, 94);
+            this.Przypiszsprzetbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Przypiszsprzetbutton.Name = "Przypiszsprzetbutton";
-            this.Przypiszsprzetbutton.Size = new System.Drawing.Size(130, 41);
+            this.Przypiszsprzetbutton.Size = new System.Drawing.Size(98, 33);
             this.Przypiszsprzetbutton.TabIndex = 16;
             this.Przypiszsprzetbutton.Text = "Przypisz sprzęt";
             this.Przypiszsprzetbutton.UseVisualStyleBackColor = true;
@@ -195,9 +211,10 @@ namespace VeterinaryAppADO
             // 
             // usunpersonelbutton
             // 
-            this.usunpersonelbutton.Location = new System.Drawing.Point(381, 416);
+            this.usunpersonelbutton.Location = new System.Drawing.Point(234, 436);
+            this.usunpersonelbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.usunpersonelbutton.Name = "usunpersonelbutton";
-            this.usunpersonelbutton.Size = new System.Drawing.Size(146, 36);
+            this.usunpersonelbutton.Size = new System.Drawing.Size(110, 29);
             this.usunpersonelbutton.TabIndex = 17;
             this.usunpersonelbutton.Text = "Usuń personel";
             this.usunpersonelbutton.UseVisualStyleBackColor = true;
@@ -205,39 +222,20 @@ namespace VeterinaryAppADO
             // 
             // modyfikujpersonelbutton
             // 
-            this.modyfikujpersonelbutton.Location = new System.Drawing.Point(381, 459);
+            this.modyfikujpersonelbutton.Location = new System.Drawing.Point(234, 388);
+            this.modyfikujpersonelbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modyfikujpersonelbutton.Name = "modyfikujpersonelbutton";
-            this.modyfikujpersonelbutton.Size = new System.Drawing.Size(146, 39);
+            this.modyfikujpersonelbutton.Size = new System.Drawing.Size(110, 32);
             this.modyfikujpersonelbutton.TabIndex = 18;
             this.modyfikujpersonelbutton.Text = "Modyfikuj personel";
             this.modyfikujpersonelbutton.UseVisualStyleBackColor = true;
             this.modyfikujpersonelbutton.Click += new System.EventHandler(this.modyfikujpersonelbutton_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(397, 305);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 17);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(397, 332);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "label8";
-            // 
             // ClinicManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 573);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(807, 544);
             this.Controls.Add(this.modyfikujpersonelbutton);
             this.Controls.Add(this.usunpersonelbutton);
             this.Controls.Add(this.Przypiszsprzetbutton);
@@ -256,7 +254,6 @@ namespace VeterinaryAppADO
             this.Controls.Add(this.NazwiskoPersonelTextbox);
             this.Controls.Add(this.ImiepersonelTextbox);
             this.Controls.Add(this.buttonDodajPersonel);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClinicManagerForm";
             this.Text = "ClinicManagerForm";
             this.Load += new System.EventHandler(this.ClinicManagerForm_Load);
@@ -287,7 +284,5 @@ namespace VeterinaryAppADO
         private System.Windows.Forms.Button Przypiszsprzetbutton;
         private System.Windows.Forms.Button usunpersonelbutton;
         private System.Windows.Forms.Button modyfikujpersonelbutton;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
     }
 }

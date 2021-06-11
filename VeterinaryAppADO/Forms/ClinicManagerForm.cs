@@ -77,7 +77,6 @@ namespace VeterinaryAppADO
                 //   PersonelDGV.RowsAdded += RowsAdded;
                
 
-                label7.Text = PersonelDGV.Rows.Count.ToString();
                 MessageBox.Show("Pomyślnie dodano personel do bazy");               
                 Refresh();
 
@@ -185,7 +184,6 @@ namespace VeterinaryAppADO
                
 
                 licznikpersonelu = (PersonelDGV.Rows.Count - 1).ToString();
-                label8.Text = licznikpersonelu.ToString();
 
                 SetPersonelInDGV();
                 
