@@ -237,6 +237,8 @@ namespace VeterinaryAppADO
                 int IDDelete = (int)dataGridViewAnimal.CurrentRow.Cells["IDZwierze"].Value;
 
                 zwierze.IdZwierze = IDDelete;
+                zwierze.deleteFromSickAnimal(zwierze.IdZwierze);
+                zwierze.deleteFromVisitAnimal(zwierze.IdZwierze);
                 zwierze.deleteAnimal(zwierze.IdZwierze);
        //         dataGridViewAnimal.RowsRemoved += RowsRemoved;
                 MessageBox.Show("Pomyślnie usunięto zwierzaka z bazy");

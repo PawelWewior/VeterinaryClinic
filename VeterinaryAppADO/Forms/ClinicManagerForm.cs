@@ -70,10 +70,9 @@ namespace VeterinaryAppADO
             {
                 personel.Imie = ImiepersonelTextbox.Text;
                 personel.Nazwisko = NazwiskoPersonelTextbox.Text;
-                personel.dataUr = monthCalendar1.SelectionRange.Start;
                 personel.Stanowisko = Stanowiskocombobox.SelectedItem.ToString();
                 personel.Telefon = (int)TelefonPersonelNumericUpDown.Value;
-                personel.addPersonel(personel.Imie, personel.Nazwisko, personel.dataUr, personel.Stanowisko, personel.Telefon.ToString());
+                personel.addPersonel(personel.Imie, personel.Nazwisko, personel.Stanowisko, personel.Telefon.ToString());
                 //   PersonelDGV.RowsAdded += RowsAdded;
                
 
@@ -83,16 +82,11 @@ namespace VeterinaryAppADO
             }
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            monthCalendar1.MaxDate = DateTime.Now;
-        }
-
+       
         void Refresh()
         {
             ImiepersonelTextbox.Clear();
             NazwiskoPersonelTextbox.Clear();
-            monthCalendar1.MaxDate = DateTime.Now;
             
             TelefonPersonelNumericUpDown.Value = 0;
             SetPersonelInDGV();
@@ -112,7 +106,6 @@ namespace VeterinaryAppADO
                 personel.Id = (int)da["IDPersonel"];
                 personel.Imie = da["Imie"].ToString();
                 personel.Nazwisko = da["Nazwisko"].ToString();
-                personel.dataUr = (DateTime)da["DataUrodzenia"];
                 personel.Stanowisko = da["Stanowisko"].ToString();
                 personel.Telefon = (int)da["Telefon"];
                 sprzet.Nazwa = da["Nazwa"].ToString();
@@ -178,6 +171,8 @@ namespace VeterinaryAppADO
                 Personel personel = new Personel();
                 int IDDelete = (int)PersonelDGV.CurrentRow.Cells["IDPersonel"].Value;
                 personel.Id = IDDelete;
+                personel.deleteFromVisitPersonel(personel.Id);
+                personel.setPersonelNull(personel.Id);
                 personel.deletePersonel(personel.Id);
                 MessageBox.Show("Pomyślnie usunięto personel z bazy");
                 PersonelTable.Clear();
@@ -210,14 +205,13 @@ namespace VeterinaryAppADO
 
                 personel.Imie = ImiepersonelTextbox.Text;
                 personel.Nazwisko = NazwiskoPersonelTextbox.Text;
-                personel.dataUr = monthCalendar1.SelectionRange.Start;
                 personel.Stanowisko = Stanowiskocombobox.SelectedItem.ToString();
                 personel.Telefon = (int)TelefonPersonelNumericUpDown.Value;
 
              
                 personel.Id = (int)PersonelDGV.CurrentRow.Cells[0].Value;
 
-                personel.modyfikujpersonel(personel.Id, personel.Imie, personel.Nazwisko, personel.dataUr, personel.Stanowisko, personel.Telefon.ToString());
+                personel.modyfikujpersonel(personel.Id, personel.Imie, personel.Nazwisko, personel.Stanowisko, personel.Telefon.ToString());
 
 
                 MessageBox.Show("Pomyślnie zedytowano personel");
@@ -227,5 +221,26 @@ namespace VeterinaryAppADO
                 
             
         }
+
+        private void PersonelDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (PersonelDGV.SelectedRows.Count > 0)
+            {
+
+                string imie = PersonelDGV.SelectedRows[0].Cells[1].Value + string.Empty;
+                string nazwisko = PersonelDGV.SelectedRows[0].Cells[3].Value + string.Empty;
+                string stanowisko = PersonelDGV.SelectedRows[0].Cells[4].Value + string.Empty;
+                int telefon = (int)PersonelDGV.SelectedRows[0].Cells[4].Value;
+
+                ImiepersonelTextbox.Text = imie;
+                NazwiskoPersonelTextbox.Text = nazwisko;
+                Stanowiskocombobox.SelectedItem = stanowisko;
+                TelefonPersonelNumericUpDown.Value = telefon;
+
+               
+
+            }
+        }
+
     }
 }

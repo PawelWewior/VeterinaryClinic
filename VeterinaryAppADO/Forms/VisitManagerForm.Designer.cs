@@ -84,6 +84,7 @@ namespace VeterinaryAppADO
             this.VisitDate.MaxSelectionCount = 1;
             this.VisitDate.Name = "VisitDate";
             this.VisitDate.TabIndex = 2;
+            this.VisitDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.VisitDate_DateChanged);
             // 
             // VisitCost
             // 

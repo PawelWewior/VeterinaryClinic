@@ -54,7 +54,7 @@ namespace VeterinaryAppADO
             GetAnimalsToBox();
             GetDocsToBox();
 
-            
+
         }
 
         public int GetnumberofPersonel()
@@ -76,7 +76,7 @@ namespace VeterinaryAppADO
 
         public int GetnumberofHospitalizacja()
         {
-            string stmt = "SELECT COUNT(IDZwierze) FROM dbo.Choroba WHERE WymogHospitalizacji = Tak";
+            string stmt = "SELECT COUNT(IDZwierze) FROM dbo.Choroba WHERE WymogHospitalizacji = 'Tak' ";
             int count = 0;
 
             using (SqlConnection thisConnection = new SqlConnection("Server= localhost; Database= Vet;Integrated Security=SSPI"))
@@ -94,13 +94,13 @@ namespace VeterinaryAppADO
         {
             dataGridViewVisit.DataSource = VisitsData;
             con.Open();
-            SqlCommand getVisits = new SqlCommand("SELECT dbo.Wizyta.IDWizyta,dbo.Wizyta.DataWizyty,dbo.Wizyta.KosztWizyty,dbo.Zwierze.Imie,dbo.Personel.Nazwisko FROM dbo.Wizyta INNER JOIN dbo.Zwierze on dbo.Wizyta.IDZwierze = dbo.Zwierze.IDZwierze INNER JOIN dbo.Personel on dbo.Wizyta.IDPersonel = dbo.Personel.IDPersonel",con);
+            SqlCommand getVisits = new SqlCommand("SELECT dbo.Wizyta.IDWizyta,dbo.Wizyta.DataWizyty,dbo.Wizyta.KosztWizyty,dbo.Zwierze.Imie,dbo.Personel.Nazwisko FROM dbo.Wizyta INNER JOIN dbo.Zwierze on dbo.Wizyta.IDZwierze = dbo.Zwierze.IDZwierze INNER JOIN dbo.Personel on dbo.Wizyta.IDPersonel = dbo.Personel.IDPersonel", con);
 
             SqlDataAdapter da = new SqlDataAdapter(getVisits);
 
             da.Fill(VisitsData);
             con.Close();
-                
+
 
         }
 
@@ -108,7 +108,7 @@ namespace VeterinaryAppADO
         {
             dataGridViewSickness.DataSource = SickData;
             con.Open();
-            SqlCommand getSickness = new SqlCommand("SELECT dbo.Choroba.IDChoroba,dbo.Zwierze.Imie,dbo.Choroba.NazwaCh,dbo.Choroba.OpisCh,dbo.Choroba.WymogHospitalizacji FROM dbo.Choroba INNER JOIN dbo.Zwierze on dbo.Choroba.IDZwierze = dbo.Zwierze.IDZwierze",con);
+            SqlCommand getSickness = new SqlCommand("SELECT dbo.Choroba.IDChoroba,dbo.Zwierze.Imie,dbo.Choroba.NazwaCh,dbo.Choroba.OpisCh,dbo.Choroba.WymogHospitalizacji FROM dbo.Choroba INNER JOIN dbo.Zwierze on dbo.Choroba.IDZwierze = dbo.Zwierze.IDZwierze", con);
 
             SqlDataAdapter da = new SqlDataAdapter(getSickness);
 
@@ -120,7 +120,7 @@ namespace VeterinaryAppADO
         void GetAnimalsToBox()
         {
             con.Open();
-            SqlCommand getAnimals = new SqlCommand("SELECT IDZwierze,Imie FROM dbo.Zwierze",con);
+            SqlCommand getAnimals = new SqlCommand("SELECT IDZwierze,Imie FROM dbo.Zwierze", con);
             SqlDataReader da = getAnimals.ExecuteReader();
 
             while (da.Read())
@@ -140,15 +140,15 @@ namespace VeterinaryAppADO
         void GetDocsToBox()
         {
             con.Open();
-                 SqlCommand getDocs = new SqlCommand("SELECT Imie,Nazwisko FROM dbo.Personel WHERE Stanowisko = 'Lekarz'", con);
-                    SqlDataReader da = getDocs.ExecuteReader();
+            SqlCommand getDocs = new SqlCommand("SELECT Imie,Nazwisko FROM dbo.Personel WHERE Stanowisko = 'Lekarz'", con);
+            SqlDataReader da = getDocs.ExecuteReader();
 
-                    while (da.Read())
-                    {
-                     string doc = da["Imie"].ToString() + " " + da["Nazwisko"].ToString();
-                     PickDoc.Items.Add(doc);
+            while (da.Read())
+            {
+                string doc = da["Imie"].ToString() + " " + da["Nazwisko"].ToString();
+                PickDoc.Items.Add(doc);
 
-                    }
+            }
 
             con.Close();
         }
@@ -174,7 +174,7 @@ namespace VeterinaryAppADO
             SickData.Clear();
             SickName.Text = "";
             SickDesc.Text = "";
-            Hosp.Checked=false;
+            Hosp.Checked = false;
 
             GetSickToDGV();
             GetAnimalsToBox();
@@ -182,30 +182,30 @@ namespace VeterinaryAppADO
 
         private void buttonAddVisit_Click(object sender, EventArgs e)
         {
-            if (PickAnimal.SelectedItem == null || PickDoc.SelectedItem == null || VisitDate.SelectionStart == null || VisitCost.Value == null)
+            if (PickAnimal.SelectedItem == null || PickDoc.SelectedItem == null || VisitDate.SelectionEnd == null || VisitCost.Value == null)
             {
                 MessageBox.Show("Błąd w wprowadzaniu danych");
-                
+
             }
             else
             {
                 Wizyta vis = new Wizyta();
-                vis.DataWizyty = VisitDate.SelectionStart;
+                vis.DataWizyty = VisitDate.SelectionEnd.ToLongDateString();
                 vis.KosztWizyty = (decimal)VisitCost.Value;
                 string animal = PickAnimal.SelectedItem.ToString();
                 string doc = PickDoc.SelectedItem.ToString();
 
                 vis.addVisit(vis.DataWizyty, vis.KosztWizyty, animal, doc);
                 MessageBox.Show("Dodano wizytę do bazy");
-               
-                    VisitRefresh();
+
+                VisitRefresh();
 
             }
         }
 
         private void buttonDeleteVisit_Click(object sender, EventArgs e)
         {
-            if(dataGridViewVisit.SelectedRows.Count > 0)
+            if (dataGridViewVisit.SelectedRows.Count > 0)
             {
                 Wizyta vis = new Wizyta();
                 int IDDelete = (int)dataGridViewVisit.CurrentRow.Cells["IDWizyta"].Value;
@@ -220,7 +220,7 @@ namespace VeterinaryAppADO
             {
                 MessageBox.Show("Nie wybrano rekordu do usunięcia");
             }
-            
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -233,19 +233,19 @@ namespace VeterinaryAppADO
             if (PickAnimal2.SelectedItem == null || String.IsNullOrWhiteSpace(SickName.Text) || String.IsNullOrWhiteSpace(SickDesc.Text))
             {
                 MessageBox.Show("Błąd w wprowadzaniu danych");
-                
+
             }
-            else if(GetnumberofHospitalizacja()/GetnumberofPersonel()>5)
+            else if (GetnumberofHospitalizacja() / GetnumberofPersonel() > 5)
             {
                 MessageBox.Show("Nie może przypadać więcej niż 5 zwierząt hospitalizowanych na jednego członka personelu.");
             }
-          
+
             else
-                  {
+            {
                 Choroba ch = new Choroba();
                 ch.Nazwa = SickName.Text;
                 ch.Opis = SickDesc.Text;
-                 if(Hosp.Checked == true)
+                if (Hosp.Checked == true)
                 {
                     ch.WymogHosp = "TAK";
                 }
@@ -254,17 +254,17 @@ namespace VeterinaryAppADO
                     ch.WymogHosp = "NIE";
                 }
                 string animal = PickAnimal2.SelectedItem.ToString();
-                ch.addSickness(ch.Nazwa,ch.Opis,ch.WymogHosp,animal);
+                ch.addSickness(ch.Nazwa, ch.Opis, ch.WymogHosp, animal);
 
                 MessageBox.Show("Pomyślnie dodano chorobę do bazy");
                 SicknessRefresh();
 
-                  }
+            }
         }
 
         private void buttonDeleteSick_Click(object sender, EventArgs e)
         {
-            if(dataGridViewSickness.SelectedRows.Count > 0)
+            if (dataGridViewSickness.SelectedRows.Count > 0)
             {
                 Choroba ch = new Choroba();
                 int IDDelete = (int)dataGridViewSickness.CurrentRow.Cells["IDChoroba"].Value;
@@ -294,7 +294,7 @@ namespace VeterinaryAppADO
                 SickName.Text = nazwa;
                 SickDesc.Text = opis;
 
-                if(ischecked == "TAK")
+                if (ischecked == "TAK")
                 {
                     Hosp.Checked = true;
                 }
@@ -329,10 +329,23 @@ namespace VeterinaryAppADO
                 }
                 string animal = PickAnimal2.SelectedItem.ToString();
 
-                ch.modifySickness(ch.Id,ch.Nazwa,ch.Opis,ch.WymogHosp,animal);
+                ch.modifySickness(ch.Id, ch.Nazwa, ch.Opis, ch.WymogHosp, animal);
                 MessageBox.Show("Pomyślnie zedytowano chorobę");
                 SicknessRefresh();
             }
+        }
+
+        private void VisitDate_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+            if (e.End.CompareTo(DateTime.Today) < 0)
+            {
+                MessageBox.Show("Nie można wybrać przeszłej daty");
+                VisitDate.SelectionEnd = DateTime.Today;
+
+            }
+
+
         }
     }
 }

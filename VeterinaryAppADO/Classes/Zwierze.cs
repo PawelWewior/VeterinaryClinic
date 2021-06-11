@@ -38,12 +38,32 @@ namespace VeterinaryAppADO
 
         public void deleteAnimal(int id)
         {
-            con.Open();
+            
             SqlCommand deleteAnimal = new SqlCommand("DELETE FROM dbo.Zwierze WHERE IDZwierze = '"+id+"'",con);
             SqlDataAdapter da = new SqlDataAdapter(deleteAnimal);
             DataSet ds = new DataSet();
             da.Fill(ds);
 
+        }
+
+        public void deleteFromSickAnimal(int id)
+        {
+            con.Open();
+            SqlCommand delSickAn = new SqlCommand("DELETE FROM dbo.Choroba Where IDZwierze = '"+id+"'",con);
+            SqlDataAdapter da = new SqlDataAdapter(delSickAn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            con.Close();
+
+        }
+        public void deleteFromVisitAnimal(int id)
+        {
+            
+            SqlCommand delVisAn = new SqlCommand("DELETE FROM dbo.Wizyta Where IDZwierze = '" + id + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(delVisAn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            con.Close();
         }
 
         public void modifyAnimal(int id, string name,string type, string gatunek,int age, string owner)
