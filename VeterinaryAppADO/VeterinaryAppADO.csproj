@@ -67,7 +67,6 @@
     </Compile>
     <Compile Include="Classes\Opiekun.cs" />
     <Compile Include="Classes\Personel.cs" />
-    <Compile Include="Classes\Pomieszczenia.cs" />
     <Compile Include="Classes\Sprzet.cs" />
     <Compile Include="Forms\VisitManagerForm.cs">
       <SubType>Form</SubType>

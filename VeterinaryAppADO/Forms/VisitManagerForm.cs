@@ -53,6 +53,8 @@ namespace VeterinaryAppADO
             GetSickToDGV();
             GetAnimalsToBox();
             GetDocsToBox();
+
+            
         }
 
         public int GetnumberofPersonel()
@@ -231,9 +233,14 @@ namespace VeterinaryAppADO
             if (PickAnimal2.SelectedItem == null || String.IsNullOrWhiteSpace(SickName.Text) || String.IsNullOrWhiteSpace(SickDesc.Text))
             {
                 MessageBox.Show("Błąd w wprowadzaniu danych");
-
+                
             }
-                 else
+            else if(GetnumberofHospitalizacja()/GetnumberofPersonel()>5)
+            {
+                MessageBox.Show("Nie może przypadać więcej niż 5 zwierząt hospitalizowanych na jednego członka personelu.");
+            }
+          
+            else
                   {
                 Choroba ch = new Choroba();
                 ch.Nazwa = SickName.Text;
