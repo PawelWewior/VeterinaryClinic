@@ -171,6 +171,7 @@ namespace VeterinaryAppADO
             SickName.Text = "";
             SickDesc.Text = "";
             Hosp.Checked = false;
+            GetSickToDGV();
 
         }
 
