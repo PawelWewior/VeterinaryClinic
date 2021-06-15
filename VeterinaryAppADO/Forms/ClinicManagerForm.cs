@@ -228,8 +228,8 @@ namespace VeterinaryAppADO
             {
 
                 string imie = PersonelDGV.SelectedRows[0].Cells[1].Value + string.Empty;
-                string nazwisko = PersonelDGV.SelectedRows[0].Cells[3].Value + string.Empty;
-                string stanowisko = PersonelDGV.SelectedRows[0].Cells[4].Value + string.Empty;
+                string nazwisko = PersonelDGV.SelectedRows[0].Cells[2].Value + string.Empty;
+                string stanowisko = PersonelDGV.SelectedRows[0].Cells[3].Value + string.Empty;
                 int telefon = (int)PersonelDGV.SelectedRows[0].Cells[4].Value;
 
                 ImiepersonelTextbox.Text = imie;
