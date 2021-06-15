@@ -156,28 +156,22 @@ namespace VeterinaryAppADO
         void VisitRefresh()
         {
 
-            PickAnimal.Items.Clear();
-            PickDoc.Items.Clear();
             VisitCost.Value = 0;
             VisitsData.Clear();
 
             GetVisitsToDGV();
-            GetAnimalsToBox();
-            GetDocsToBox();
+           
 
         }
 
         void SicknessRefresh()
         {
-            PickAnimal.Items.Clear();
-            PickAnimal2.Items.Clear();
+         
             SickData.Clear();
             SickName.Text = "";
             SickDesc.Text = "";
             Hosp.Checked = false;
 
-            GetSickToDGV();
-            GetAnimalsToBox();
         }
 
         private void buttonAddVisit_Click(object sender, EventArgs e)
