@@ -172,6 +172,8 @@ namespace VeterinaryAppADO
             // 
             // PersonelDGV
             // 
+            this.PersonelDGV.AllowUserToAddRows = false;
+            this.PersonelDGV.AllowUserToDeleteRows = false;
             this.PersonelDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PersonelDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PersonelDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

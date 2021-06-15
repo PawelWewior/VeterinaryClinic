@@ -58,6 +58,8 @@ namespace VeterinaryAppADO
             // 
             // dataGridViewSickness
             // 
+            this.dataGridViewSickness.AllowUserToAddRows = false;
+            this.dataGridViewSickness.AllowUserToDeleteRows = false;
             this.dataGridViewSickness.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewSickness.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewSickness.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -70,6 +72,8 @@ namespace VeterinaryAppADO
             // 
             // dataGridViewVisit
             // 
+            this.dataGridViewVisit.AllowUserToAddRows = false;
+            this.dataGridViewVisit.AllowUserToDeleteRows = false;
             this.dataGridViewVisit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewVisit.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewVisit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
