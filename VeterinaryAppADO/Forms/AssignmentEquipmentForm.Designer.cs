@@ -44,11 +44,13 @@
             // 
             // SprzetDGV
             // 
+            this.SprzetDGV.AllowUserToAddRows = false;
+            this.SprzetDGV.AllowUserToDeleteRows = false;
             this.SprzetDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SprzetDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.SprzetDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SprzetDGV.Location = new System.Drawing.Point(32, 124);
-            this.SprzetDGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SprzetDGV.Margin = new System.Windows.Forms.Padding(2);
             this.SprzetDGV.Name = "SprzetDGV";
             this.SprzetDGV.RowHeadersWidth = 51;
             this.SprzetDGV.RowTemplate.Height = 24;
@@ -57,11 +59,13 @@
             // 
             // PersonelDGV
             // 
+            this.PersonelDGV.AllowUserToAddRows = false;
+            this.PersonelDGV.AllowUserToDeleteRows = false;
             this.PersonelDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PersonelDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PersonelDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PersonelDGV.Location = new System.Drawing.Point(32, 30);
-            this.PersonelDGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PersonelDGV.Margin = new System.Windows.Forms.Padding(2);
             this.PersonelDGV.Name = "PersonelDGV";
             this.PersonelDGV.RowHeadersWidth = 51;
             this.PersonelDGV.RowTemplate.Height = 24;
@@ -71,7 +75,7 @@
             // PrzypiszpersonelButton
             // 
             this.PrzypiszpersonelButton.Location = new System.Drawing.Point(251, 196);
-            this.PrzypiszpersonelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PrzypiszpersonelButton.Margin = new System.Windows.Forms.Padding(2);
             this.PrzypiszpersonelButton.Name = "PrzypiszpersonelButton";
             this.PrzypiszpersonelButton.Size = new System.Drawing.Size(174, 24);
             this.PrzypiszpersonelButton.TabIndex = 3;
@@ -81,11 +85,13 @@
             // 
             // PersonelSprzetDGV
             // 
+            this.PersonelSprzetDGV.AllowUserToAddRows = false;
+            this.PersonelSprzetDGV.AllowUserToDeleteRows = false;
             this.PersonelSprzetDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PersonelSprzetDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PersonelSprzetDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PersonelSprzetDGV.Location = new System.Drawing.Point(32, 245);
-            this.PersonelSprzetDGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PersonelSprzetDGV.Margin = new System.Windows.Forms.Padding(2);
             this.PersonelSprzetDGV.Name = "PersonelSprzetDGV";
             this.PersonelSprzetDGV.RowHeadersWidth = 51;
             this.PersonelSprzetDGV.RowTemplate.Height = 24;
@@ -140,7 +146,7 @@
             // usunprzypisaniebutton
             // 
             this.usunprzypisaniebutton.Location = new System.Drawing.Point(278, 376);
-            this.usunprzypisaniebutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usunprzypisaniebutton.Margin = new System.Windows.Forms.Padding(2);
             this.usunprzypisaniebutton.Name = "usunprzypisaniebutton";
             this.usunprzypisaniebutton.Size = new System.Drawing.Size(136, 23);
             this.usunprzypisaniebutton.TabIndex = 9;
@@ -162,7 +168,7 @@
             this.Controls.Add(this.PrzypiszpersonelButton);
             this.Controls.Add(this.PersonelDGV);
             this.Controls.Add(this.SprzetDGV);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AssignmentEquipmentForm";
             this.Text = "AssignmentEquipmentForm";
             this.Load += new System.EventHandler(this.AssignmentEquipmentForm_Load);

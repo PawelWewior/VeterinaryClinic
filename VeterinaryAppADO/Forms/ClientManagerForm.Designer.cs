@@ -192,6 +192,8 @@ namespace VeterinaryAppADO
             // 
             // dataGridViewAnimal
             // 
+            this.dataGridViewAnimal.AllowUserToAddRows = false;
+            this.dataGridViewAnimal.AllowUserToDeleteRows = false;
             this.dataGridViewAnimal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAnimal.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewAnimal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
