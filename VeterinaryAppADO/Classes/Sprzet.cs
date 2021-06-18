@@ -24,6 +24,7 @@ namespace VeterinaryAppADO
             SqlDataAdapter da = new SqlDataAdapter(addPersonel);
             DataSet ds = new DataSet();
             da.Fill(ds);
+            con.Close();
         }
 
 
